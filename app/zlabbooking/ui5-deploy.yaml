@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
 specVersion: '2.4'
 metadata:
-  name: zlab.zlabbooking
+  name: zlab.zlabbooking.v2
 type: application
 resources:
   configuration:
@@ -20,6 +20,6 @@ builder:
   - name: ui5-task-zipper
     afterTask: generateCachebusterInfo
     configuration:
-      archiveName: zlabzlabbooking
+      archiveName: zlabzlabbooking-v2
       additionalFiles:
       - xs-app.json

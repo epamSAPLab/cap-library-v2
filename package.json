@@ -1,5 +1,5 @@
 {
-    "name": "zlablibrary",
+    "name": "zlablibrary-v2",
     "version": "1.0.0",
     "description": "A simple CAP project.",
     "repository": "<Add your repository here>",
@@ -17,10 +17,10 @@
         "sqlite3": "^5.0.2"
     },
     "scripts": {
-        "hana": "cds deploy --to hana:library --auto-undeploy",
+        "hana": "cds deploy --to hana:library-v2 --auto-undeploy",
         "start": "cds run",
         "build": "cds build",
-        "undeploy": "cf undeploy zlablibrary --delete-services --delete-service-keys"
+        "undeploy": "cf undeploy zlablibrary-v2 --delete-services --delete-service-keys"
     },
     "eslintConfig": {
         "extends": "eslint:recommended",

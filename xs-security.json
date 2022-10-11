@@ -1,5 +1,5 @@
 {
-  "xsappname": "zlablibrary",
+  "xsappname": "zlablibrary-v2",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
   "scopes": [

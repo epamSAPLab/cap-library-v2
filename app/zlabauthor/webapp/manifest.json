@@ -1,7 +1,7 @@
 {
     "_version": "1.32.0",
     "sap.app": {
-        "id": "zlab.zlabauthor",
+        "id": "zlab.zlabauthor.v2",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -38,7 +38,7 @@
                     "icon": "sap-icon://customer",
                     "indicatorDataSource": {
                         "dataSource": "mainService",
-                        "path": "/dynamic_dest/zlablibrary-app-srv/library/Authors/$count",
+                        "path": "/dynamic_dest/zlablibrary-v2-app-srv/library/Authors/$count",
                         "refresh": 10
                     }
                 }
@@ -154,7 +154,6 @@
                     "name": "sap.fe.templates.ObjectPage",
                     "options": {
                         "settings": {
-                            "editableHeaderContent": false,
                             "entitySet": "Books"
                         }
                     }
@@ -181,6 +180,6 @@
     },
     "sap.cloud": {
         "public": true,
-        "service": "zlablibrary"
+        "service": "zlablibrary.v2"
     }
 }

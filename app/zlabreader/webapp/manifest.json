@@ -1,7 +1,7 @@
 {
     "_version": "1.32.0",
     "sap.app": {
-        "id": "zlab.zlabreader",
+        "id": "zlab.zlabreader.v2",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -38,7 +38,7 @@
                     "icon": "sap-icon://customer",
                     "indicatorDataSource": {
                         "dataSource": "mainService",
-                        "path": "/dynamic_dest/zlablibrary-app-srv/library/Readers/$count",
+                        "path": "/dynamic_dest/zlablibrary-v2-app-srv/library/Readers/$count",
                         "refresh": 10
                     }
                 }
@@ -158,6 +158,6 @@
     },
     "sap.cloud": {
         "public": true,
-        "service": "zlablibrary"
+        "service": "zlablibrary.v2"
     }
 }

@@ -5,7 +5,7 @@
     {
         "source": "^/library/(.*)$",
         "target": "/library/$1",
-        "destination": "zlablibrary-app-srv",
+        "destination": "zlablibrary-v2-app-srv",
         "authenticationType": "xsuaa",
         "csrfProtection": false
     },
