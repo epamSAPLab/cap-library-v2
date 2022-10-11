@@ -1,0 +1,72 @@
+{
+    "name": "zlablibrary",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^5",
+        "express": "^4",
+        "hdb": "^0.18.3",
+        "passport": "0.5.2",
+        "axios": "0.24.0"
+    },
+    "devDependencies": {
+        "@sap/ux-specification": "^1.96.2",
+        "sqlite3": "^5.0.2"
+    },
+    "scripts": {
+        "hana": "cds deploy --to hana:library --auto-undeploy",
+        "start": "cds run",
+        "build": "cds build",
+        "undeploy": "cf undeploy zlablibrary --delete-services --delete-service-keys"
+    },
+    "eslintConfig": {
+        "extends": "eslint:recommended",
+        "env": {
+            "es2020": true,
+            "node": true,
+            "jest": true,
+            "mocha": true
+        },
+        "globals": {
+            "SELECT": true,
+            "INSERT": true,
+            "UPDATE": true,
+            "DELETE": true,
+            "CREATE": true,
+            "DROP": true,
+            "CDL": true,
+            "CQL": true,
+            "CXL": true,
+            "cds": true
+        },
+        "rules": {
+            "no-console": "off",
+            "require-atomic-updates": "off"
+        }
+    },
+    "cds": {
+        "requires": {
+            "db": {
+                "kind": "hana"
+            },
+            "CPIDestination": {
+                "kind": "rest",
+                "credentials": {
+                  "destination": "CPI_DESTINATION"
+                }
+            }
+        },
+        "hana": {
+            "deploy-format": "hdbtable"
+        }
+    },
+    "sapux": [
+        "app/zlabreader",
+        "app/zlabauthor",
+        "app/zlabbook",
+        "app/zlabbooking"
+    ]
+}

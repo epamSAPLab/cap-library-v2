@@ -1,0 +1,183 @@
+_schema-version: "3.1"
+ID: zlablibrary
+description: A simple CAP project.
+version: 1.0.0
+modules:
+- name: zlablibrary-srv
+  type: nodejs
+  path: gen/srv
+  requires:
+  - name: zlablibrary-db
+  - name: uaa_zlablibrary
+  - name: dest_service
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+  build-parameters:
+    builder: npm-ci
+- name: zlablibrary-db-deployer
+  type: hdb
+  path: gen/db
+  requires:
+  - name: zlablibrary-db
+  - name: uaa_zlablibrary
+  parameters:
+    buildpack: nodejs_buildpack
+- name: zlablibrary-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: zlablibrary-destination-service
+    parameters:
+      content-target: true
+  - name: zlablibrary_html_repo_host
+    parameters:
+      service-key:
+        name: zlablibrary_html_repo_host-key
+  - name: uaa_zlablibrary
+    parameters:
+      service-key:
+        name: uaa_zlablibrary-key
+  - name: srv-api
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Authentication: OAuth2UserTokenExchange
+          Name: zlablibrary-app-srv
+          TokenServiceInstanceName: zlablibrary-xsuaa-service
+          TokenServiceKeyName: uaa_zlablibrary-key
+          URL: ~{srv-api/srv-url}
+          sap.cloud.service: zlablibrary
+        - Name: zlablibrary_zlablibrary_html_repo_host
+          ServiceInstanceName: zlablibrary-html5-app-host-service
+          ServiceKeyName: zlablibrary_html_repo_host-key
+          sap.cloud.service: zlablibrary
+        - Authentication: OAuth2UserTokenExchange
+          Name: zlablibrary_uaa_zlablibrary
+          ServiceInstanceName: zlablibrary-xsuaa-service
+          ServiceKeyName: uaa_zlablibrary-key
+          sap.cloud.service: zlablibrary
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: zlablibrary-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: zlablibrary_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - zlabzlabreader.zip
+      name: zlabzlabreader
+      target-path: resources/
+    - artifacts:
+      - zlabzlabauthor.zip
+      name: zlabzlabauthor
+      target-path: resources/
+    - artifacts:
+      - zlabzlabbook.zip
+      name: zlabzlabbook
+      target-path: resources/
+    - artifacts:
+      - zlabzlabbooking.zip
+      name: zlabzlabbooking
+      target-path: resources/
+- name: zlabzlabreader
+  type: html5
+  path: app/zlabreader
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: zlabzlabauthor
+  type: html5
+  path: app/zlabauthor
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: zlabzlabbook
+  type: html5
+  path: app/zlabbook
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: zlabzlabbooking
+  type: html5
+  path: app/zlabbooking
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: zlablibrary-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+  properties:
+    hdi-service-name: ${service-name}
+- name: zlablibrary-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-plan: lite
+- name: zlablibrary_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: zlablibrary-html5-app-host-service
+    service-plan: app-host
+- name: uaa_zlablibrary
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: zlablibrary-xsuaa-service
+    service-plan: application
+- name: dest_service
+  type: org.cloudfoundry.existing-service
+  parameters:
+    service-plan: lite
+    service: destination      
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm ci
+    - npx -p @sap/cds-dk cds build --production

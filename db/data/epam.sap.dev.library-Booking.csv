@@ -1,0 +1,2 @@
+bookingUUID;bookingID;readerID_readerUUID;bookID_bookUUID;bookingStatus_ID;beginDate;beginTime
+32ca5208-698d-7d7a-9db9-003ef21b6742;1;8cd4b2a3-816c-4da2-951a-4e2097a66d18;32ca5208-698d-4d7a-9db9-003ef21b6222;2;2022-01-22;101500
