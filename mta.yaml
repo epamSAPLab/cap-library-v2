@@ -10,6 +10,7 @@ modules:
   - name: zlablibrary-v2-db
   - name: uaa_zlablibrary-v2
   - name: dest_service
+  - name: zlablibrary-v2-logs
   provides:
   - name: srv-api
     properties:
@@ -24,6 +25,7 @@ modules:
   requires:
   - name: zlablibrary-v2-db
   - name: uaa_zlablibrary-v2
+  - name: zlablibrary-v2-logs
   parameters:
     buildpack: nodejs_buildpack
 - name: zlablibrary-v2-destination-content
@@ -167,6 +169,11 @@ resources:
     service: xsuaa
     service-name: zlablibrary-v2-xsuaa-service
     service-plan: application
+- name: zlablibrary-v2-logs
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: application-logs
+    service-plan: lite
 - name: dest_service
   type: org.cloudfoundry.existing-service
   parameters:
