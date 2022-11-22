@@ -42,6 +42,15 @@
                         "refresh": 10
                     }
                 }
+            },
+            "outbounds": {
+                "zlab-zlabbook-outbound-authors": {
+                    "semanticObject": "Authors",
+                    "action": "manage",
+                    "parameters": {
+                        "toAuthor_authorUUID": {}
+                    }
+                }
             }
         }
     },

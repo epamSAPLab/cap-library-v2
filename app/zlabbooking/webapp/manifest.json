@@ -42,6 +42,22 @@
                         "refresh": 10
                     }
                 }
+            },
+            "outbounds": {
+                "zlab-zlabbooking-outbound-readers": {
+                    "semanticObject": "Readers",
+                    "action": "manage",
+                    "parameters": {
+                        "readerID_readerUUID": {}
+                    }
+                },
+                "zlab-zlabbooking-outbound-books": {
+                    "semanticObject": "Books",
+                    "action": "manage",
+                    "parameters": {
+                        "bookID_bookUUID": {}
+                    }
+                }
             }
         }
     },
