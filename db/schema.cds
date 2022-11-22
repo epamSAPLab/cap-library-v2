@@ -25,8 +25,8 @@ entity Booking : managed {
 entity Authors : managed {
     key authorUUID : UUID;
         authorID   : Integer;
-        firstName  : String(15);
-        lastName   : String(15);
+        firstName  : localized String(15);
+        lastName   : localized String(15);
         birthday   : Date;
         country    : String(30);
         image      : LargeBinary @Core.MediaType : 'image/png';
@@ -38,7 +38,7 @@ entity Books : managed {
     key bookUUID     : UUID;
         toAuthor     : Association to Authors;
         bookID       : Integer;
-        bookName     : String(60);
+        bookName     : localized String(60);
         pageNumber   : Integer;
         copyQty      : Integer;
         shippedQty   : Integer;
@@ -52,8 +52,8 @@ entity Books : managed {
 entity Readers : managed {
     key readerUUID    : UUID;
         readerID      : Integer;
-        firstName     : String(15);
-        lastName      : String(15);
+        firstName     : localized String(15);
+        lastName      : localized String(15);
         readerBithday : Date;
         phonenumber   : String(15);
         image         : LargeBinary @Core.MediaType : 'image/png';
