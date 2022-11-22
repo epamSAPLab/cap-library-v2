@@ -4,17 +4,78 @@
   "description": "Security profile of called application",
   "scopes": [
     {
-      "name": "uaa.user",
-      "description": "UAA"
+      "name": "$XSAPPNAME.LibraryViewer",
+      "description": "LibraryViewer"
+    },
+    {
+      "name": "$XSAPPNAME.BookingManager",
+      "description": "BookingManager"
+    },
+    {
+      "name": "$XSAPPNAME.BooksManager",
+      "description": "BooksManager"
+    },
+    {
+      "name": "$XSAPPNAME.ReadersManager",
+      "description": "ReadersManager"
+    },
+    {
+      "name": "$XSAPPNAME.AuthorsManager",
+      "description": "AuthorsManager"
+    },
+    {
+      "name": "$XSAPPNAME.LibraryAdministrator",
+      "description": "LibraryAdministrator"
     }
   ],
   "role-templates": [
     {
-      "name": "Token_Exchange",
-      "description": "UAA",
+      "name": "LibraryViewer",
+      "description": "generated",
       "scope-references": [
-        "uaa.user"
-      ]
+        "$XSAPPNAME.LibraryViewer"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "BookingManager",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.BookingManager"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "BooksManager",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.BooksManager"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "ReadersManager",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.ReadersManager"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "AuthorsManager",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.AuthorsManager"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "LibraryAdministrator",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.LibraryAdministrator"
+      ],
+      "attribute-references": []
     }
   ]
 }

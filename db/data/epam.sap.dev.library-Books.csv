@@ -1,2 +1,2 @@
 bookUUID;bookID;toAuthor_authorUUID;bookName;pageNumber;copyQtY;price;CurrencyCode_code;status_ID
-32ca5208-698d-4d7a-9db9-003ef21b6222;1;32ca5208-698d-4d7a-1524-003ef21b6347;"The Raven";300;1;30;USD;1
+32ca5208-698d-4d7a-9db9-003ef21b6222;1;32ca5208-698d-4d7a-1524-003ef21b6347;"The Raven";300;5;30;USD;1
