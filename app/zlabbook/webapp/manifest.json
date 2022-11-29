@@ -31,7 +31,7 @@
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "Books",
+                    "semanticObject": "Booksv2",
                     "action": "manage",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
@@ -45,7 +45,7 @@
             },
             "outbounds": {
                 "zlab-zlabbook-outbound-authors": {
-                    "semanticObject": "Authors",
+                    "semanticObject": "Authorsv2",
                     "action": "manage",
                     "parameters": {
                         "toAuthor_authorUUID": {}

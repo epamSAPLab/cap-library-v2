@@ -50,7 +50,12 @@
     "cds": {
         "requires": {
             "db": {
-                "kind": "hana"
+                "[development]": {
+                  "kind": "sqlite"
+                },
+                "[production]": {
+                  "kind": "hana"
+                }
             },
             "CPIDestination": {
                 "kind": "rest",

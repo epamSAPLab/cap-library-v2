@@ -31,7 +31,7 @@
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "Booking",
+                    "semanticObject": "Bookingv2",
                     "action": "manage",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
@@ -45,14 +45,14 @@
             },
             "outbounds": {
                 "zlab-zlabbooking-outbound-readers": {
-                    "semanticObject": "Readers",
+                    "semanticObject": "Readersv2",
                     "action": "manage",
                     "parameters": {
                         "readerID_readerUUID": {}
                     }
                 },
                 "zlab-zlabbooking-outbound-books": {
-                    "semanticObject": "Books",
+                    "semanticObject": "Booksv2",
                     "action": "manage",
                     "parameters": {
                         "bookID_bookUUID": {}

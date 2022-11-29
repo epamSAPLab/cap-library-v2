@@ -43,7 +43,7 @@ annotate LibraryService.Booking with @(
         {
             $Type : 'UI.DataFieldWithIntentBasedNavigation',
             Value : readerID_readerUUID,
-            SemanticObject : 'Readers',
+            SemanticObject : 'Readersv2',
             Action : 'manage'
         }
         //{   $Type : 'UI.DataField', Value : readerID_readerUUID}
@@ -52,7 +52,7 @@ annotate LibraryService.Booking with @(
         {
             $Type : 'UI.DataFieldWithIntentBasedNavigation',
             Value : bookID_bookUUID,
-            SemanticObject : 'Books',
+            SemanticObject : 'Booksv2',
             Action : 'manage'
         }
         //{   $Type : 'UI.DataField', Value : bookID_bookUUID }

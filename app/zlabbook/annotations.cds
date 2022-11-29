@@ -1,9 +1,5 @@
 using LibraryService as service from '../../srv/services';
 
-annotate service.Books with {
-    bookUUID          @UI.ExcludeFromNavigationContext : true;
-}
-
 annotate service.Books with @(
      UI: {
  SelectionFields: [toAuthor_authorUUID],
@@ -50,7 +46,7 @@ annotate service.Books with @(
         {
             $Type : 'UI.DataFieldWithIntentBasedNavigation',
             Value : toAuthor_authorUUID,
-            SemanticObject : 'Authors',
+            SemanticObject : 'Authorsv2',
             Action : 'manage'
         },
         //{   $Type : 'UI.DataField', Value : toAuthor_authorUUID },

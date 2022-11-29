@@ -1,9 +1,5 @@
 using LibraryService as service from '../../srv/services';
 
-annotate service.Readers with {
-    readerUUID          @UI.ExcludeFromNavigationContext : true;
-}
-
 annotate service.Readers with @(
      UI: {
  SelectionFields: [readerBithday],
