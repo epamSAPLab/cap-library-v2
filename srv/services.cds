@@ -24,6 +24,10 @@ service LibraryService {
 
     entity Currencies   as projection on common.Currencies;
 
+    entity Suppliers1 as projection on library.Suppliers1;
+
+    entity Suppliers as projection on library.Suppliers;
+
 }
 
 service TechnicalService @(requires : 'system-user') {

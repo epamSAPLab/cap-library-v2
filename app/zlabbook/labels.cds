@@ -11,5 +11,19 @@ annotate library.Books with @title : '{i18n>bookTitle}' {
     price         @title           : '{i18n>price}'       @Measures.ISOCurrency : CurrencyCode_code;
     status        @title           : '{i18n>bookstatus}'  @Common.Text          : status.name          @Common.TextArrangement : #TextFirst;
     CurrencyCode  @title           : '{i18n>currency}'    @Common.Text          : CurrencyCode.symbol  @Common.TextArrangement : #TextLast;
-
+    supplier      @(
+        title                           : '{i18n>supplier}',
+        Common.Text                     : supplier.fullName,
+        Common.TextArrangement          : #TextOnly,
+        Common.ValueListWithFixedValues : true,
+    );
 }
+
+annotate library.Suppliers with {
+    isBlocked @title : 'Supplier Blocked';
+    ID        @(
+        title       : 'ID',
+        Common.Text : fullName
+    );
+    fullName  @title : 'Name';
+};

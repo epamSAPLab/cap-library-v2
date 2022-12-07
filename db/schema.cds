@@ -6,6 +6,8 @@ using {
     sap.common.CodeList,
     Currency
 } from './common';
+using {CE_SOURCINGSUPPLIERLIST_0001 as external} from '../srv/external/CE_SOURCINGSUPPLIERLIST_0001.csn';
+using {API_BUSINESS_PARTNER as external1} from '../srv/external/API_BUSINESS_PARTNER.csn';
 
 
 entity Booking : managed {
@@ -35,17 +37,18 @@ entity Authors : managed {
 };
 
 entity Books : managed {
-    key bookUUID     : UUID;
-        toAuthor     : Association to Authors;
-        bookID       : Integer;
-        bookName     : localized String(60);
-        pageNumber   : Integer;
-        copyQty      : Integer;
-        shippedQty   : Integer;
-        price        : Decimal(15, 2);
-        CurrencyCode : Currency;
-        status       : Association to one masterdata.BookStatuses;
-        image        : LargeBinary @Core.MediaType : 'image/png';
+    key bookUUID                 : UUID;
+        toAuthor                 : Association to Authors;
+        bookID                   : Integer;
+        bookName                 : localized String(60);
+        pageNumber               : Integer;
+        copyQty                  : Integer;
+        shippedQty               : Integer;
+        price                    : Decimal(15, 2);
+        CurrencyCode             : Currency;
+        status                   : Association to one masterdata.BookStatuses;
+        image                    : LargeBinary @Core.MediaType : 'image/png';
+        supplier                 : Association to Suppliers;
         virtual orderBookEnabled : Boolean;
 }
 
@@ -58,3 +61,14 @@ entity Readers : managed {
         phonenumber   : String(15);
         image         : LargeBinary @Core.MediaType : 'image/png';
 }
+
+entity Suppliers1 as projection on external.SourcingSupplierList {
+    key SourcingSupplierListUUID as ID,
+        SupplierListName         as name,
+};
+
+entity Suppliers  as projection on external1.A_BusinessPartner {
+    key BusinessPartner          as ID,
+        BusinessPartnerFullName  as fullName,
+        BusinessPartnerIsBlocked as isBlocked
+};
