@@ -43,7 +43,13 @@ annotate service.Books with @(
         {   $Type : 'UI.DataField', Value : bookID },  
          {   $Type : 'UI.DataField', Value : status_ID, Criticality: status.criticality },  
         {   $Type : 'UI.DataField', Value : bookName },
-        {   $Type : 'UI.DataField', Value : toAuthor_authorUUID },
+        {
+            $Type : 'UI.DataFieldWithIntentBasedNavigation',
+            Value : toAuthor_authorUUID,
+            SemanticObject : 'Authorsv2',
+            Action : 'manage'
+        },
+        //{   $Type : 'UI.DataField', Value : toAuthor_authorUUID },
         {   $Type : 'UI.DataField', Value : pageNumber },
         {   $Type : 'UI.DataField', Value : copyQty },
         {   $Type : 'UI.DataField', Value : price }

@@ -31,7 +31,7 @@
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "Books",
+                    "semanticObject": "Booksv2",
                     "action": "manage",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
@@ -40,6 +40,15 @@
                         "dataSource": "mainService",
                         "path": "/dynamic_dest/zlablibrary-v2-app-srv/library/Books/$count",
                         "refresh": 10
+                    }
+                }
+            },
+            "outbounds": {
+                "zlab-zlabbook-outbound-authors": {
+                    "semanticObject": "Authorsv2",
+                    "action": "manage",
+                    "parameters": {
+                        "toAuthor_authorUUID": {}
                     }
                 }
             }

@@ -31,7 +31,7 @@
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "Booking",
+                    "semanticObject": "Bookingv2",
                     "action": "manage",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
@@ -40,6 +40,22 @@
                         "dataSource": "mainService",
                         "path": "/dynamic_dest/zlablibrary-v2-app-srv/library/Booking/$count",
                         "refresh": 10
+                    }
+                }
+            },
+            "outbounds": {
+                "zlab-zlabbooking-outbound-readers": {
+                    "semanticObject": "Readersv2",
+                    "action": "manage",
+                    "parameters": {
+                        "readerID_readerUUID": {}
+                    }
+                },
+                "zlab-zlabbooking-outbound-books": {
+                    "semanticObject": "Booksv2",
+                    "action": "manage",
+                    "parameters": {
+                        "bookID_bookUUID": {}
                     }
                 }
             }

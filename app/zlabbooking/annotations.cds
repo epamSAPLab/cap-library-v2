@@ -40,10 +40,22 @@ annotate LibraryService.Booking with @(
         {   $Type : 'UI.DataField', Value : endDate, Label : 'End Date' },
          ]},
         FieldGroup #Details2 : {Data : [
-        {   $Type : 'UI.DataField', Value : readerID_readerUUID}
+        {
+            $Type : 'UI.DataFieldWithIntentBasedNavigation',
+            Value : readerID_readerUUID,
+            SemanticObject : 'Readersv2',
+            Action : 'manage'
+        }
+        //{   $Type : 'UI.DataField', Value : readerID_readerUUID}
          ]},
         FieldGroup #Details3 : {Data : [
-        {   $Type : 'UI.DataField', Value : bookID_bookUUID }
+        {
+            $Type : 'UI.DataFieldWithIntentBasedNavigation',
+            Value : bookID_bookUUID,
+            SemanticObject : 'Booksv2',
+            Action : 'manage'
+        }
+        //{   $Type : 'UI.DataField', Value : bookID_bookUUID }
         ]},
         FieldGroup #Details1 : {Data : [
         {   $Type : 'UI.DataField', Value : bookingID },
