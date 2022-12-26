@@ -130,7 +130,8 @@
                                         "route": "BooksObjectPage"
                                     }
                                 }
-                            }
+                            },
+                            "initialLoad": "Enabled"
                         }
                     }
                 },
@@ -141,7 +142,70 @@
                     "options": {
                         "settings": {
                             "editableHeaderContent": false,
-                            "entitySet": "Books"
+                            "entitySet": "Books",
+                            "content": {
+                                "header": {
+                                    "facets": {
+                                        "HeaderCopiesFacet": {
+                                            "template": "zlab.zlabbook.v2.custom.HeaderCopiesSection",
+                                            "title": "{i18n>copies}",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "HeaderFacetImage"
+                                            },
+                                            "flexSettings": {
+                                                "designtime": "not-adaptable-visibility"
+                                            }
+                                        },
+                                        "HeaderPagesFacet": {
+                                            "template": "zlab.zlabbook.v2.custom.HeaderPagesSection",
+                                            "title": "{i18n>pages}",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "HeaderCopiesFacet"
+                                            },
+                                            "flexSettings": {
+                                                "designtime": "not-adaptable-visibility"
+                                            }
+                                        },
+                                        "HeaderStatusFacet": {
+                                            "template": "zlab.zlabbook.v2.custom.HeaderStatusSection",
+                                            "title": "{i18n>bookstatus}",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "HeaderPagesFacet"
+                                            },
+                                            "flexSettings": {
+                                                "designtime": "not-adaptable-visibility"
+                                            }
+                                        }
+                                    }
+                                },
+                                "body": {
+                                    "sections": {
+                                        "DetailsSection": {
+                                            "title": "{i18n>AdditionalInfo}",
+                                            "position": {
+                                                "anchor": "PODetails",
+                                                "placement": "After"
+                                            },
+                                            "type": "XMLFragment",
+                                            "subSections": {
+												"CopyQtySubSection": {
+                                                    "template": "zlab.zlabbook.v2.custom.CopyQtySection",
+                                                    "type": "XMLFragment",
+                                                    "title": "{i18n>copies}"
+                                                },
+                                                "PriceSubSection": {
+                                                    "template": "zlab.zlabbook.v2.custom.Price3Section",
+                                                    "type": "XMLFragment",
+                                                    "title": "{i18n>price}"
+                                                }
+											}
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }

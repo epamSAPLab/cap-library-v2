@@ -31,17 +31,18 @@ annotate service.Books with @(
         HeaderFacets : [
         {
             $Type             : 'UI.ReferenceFacet',
+            ID     : 'HeaderFacetImage',
             Target            : '@UI.FieldGroup#Description',
             ![@UI.Importance] : #High
         }],
         FieldGroup #Description        : {Data : [
         {   $Type : 'UI.DataField', Value: image},
-        {   $Type : 'UI.DataField', Value : copyQty },
-        {   $Type : 'UI.DataField', Value : pageNumber },
+        // {   $Type : 'UI.DataField', Value : copyQty },
+        // {   $Type : 'UI.DataField', Value : pageNumber },
          ]},
         FieldGroup #Details        : {Data : [
         {   $Type : 'UI.DataField', Value : bookID },  
-         {   $Type : 'UI.DataField', Value : status_ID, Criticality: status.criticality },  
+        // {   $Type : 'UI.DataField', Value : status_ID, Criticality: status.criticality },  
         {   $Type : 'UI.DataField', Value : bookName },
         {
             $Type : 'UI.DataFieldWithIntentBasedNavigation',
@@ -51,8 +52,8 @@ annotate service.Books with @(
         },
         //{   $Type : 'UI.DataField', Value : toAuthor_authorUUID },
         {   $Type : 'UI.DataField', Value : pageNumber },
-        {   $Type : 'UI.DataField', Value : copyQty },
-        {   $Type : 'UI.DataField', Value : price }
+        // {   $Type : 'UI.DataField', Value : copyQty },
+        //{   $Type : 'UI.DataField', Value : price }
         // ,
         // {   $Type : 'UI.DataField', Value : requestedQty },
          ]},

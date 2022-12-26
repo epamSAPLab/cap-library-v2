@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:layout="sap.ui.layout">
+    <VBox width="100%" direction="Column" id="PriceVBox">
+        <StepInput
+            value="{price}"
+            width="120px"
+            step="5"
+            largerStep="3"
+            description="{CurrencyCode}"
+            visible="{= ${IsActiveEntity} === false }"
+        />
+        <Text text="{price} {CurrencyCode_code}" visible="{= ${IsActiveEntity} === true }" />
+    </VBox>
+</core:FragmentDefinition>

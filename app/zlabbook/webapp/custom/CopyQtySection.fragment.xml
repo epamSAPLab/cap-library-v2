@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:layout="sap.ui.layout">
+    <VBox width="100%" direction="Column" id="CopyQtyVBox">
+            <Slider value="{copyQty}" width="75%"
+				min="0" max="200"
+				showAdvancedTooltip="true"
+				showHandleTooltip="false"
+				inputsAsTooltips="true"
+				class="sapUiMediumMarginBottom" 
+                visible ="{= ${IsActiveEntity} === false }" />
+            <Text text="{copyQty}" visible ="{= ${IsActiveEntity} === true }"/>
+	</VBox>
+</core:FragmentDefinition>
