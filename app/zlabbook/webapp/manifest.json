@@ -102,6 +102,15 @@
                 }
             }
         },
+        "extends": {
+			"extensions": {
+				"sap.ui.controllerExtensions": {
+					"sap.fe.templates.ListReport.ListReportController": {
+						"controllerName": "zlab.zlabbook.v2.custom.BookInLibraryView"
+					}
+				}
+			}
+		},
         "routing": {
             "routes": [
                 {
@@ -131,7 +140,21 @@
                                     }
                                 }
                             },
-                            "initialLoad": "Enabled"
+                            "initialLoad": "Enabled",
+                            "views": {
+								"paths": [
+									{
+										"key": "AllTab",
+										"annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#All"
+									},
+									{
+										"key": "BookInLibraryTab",
+										"label": "{i18n>CustomView}",
+										"template": "zlab.zlabbook.v2.custom.BookInLibraryView"
+									}
+								],
+								"showCounts": true
+							}
                         }
                     }
                 },
@@ -183,23 +206,20 @@
                                 },
                                 "body": {
                                     "sections": {
-                                        "DetailsSection": {
-                                            "title": "{i18n>AdditionalInfo}",
+                                        "GeneralInfo": {
+                                            "template": "zlab.zlabbook.v2.custom.GeneralInfoSection",
+                                            "title": "{i18n>GeneralInfo}",
                                             "position": {
-                                                "anchor": "PODetails",
-                                                "placement": "After"
-                                            },
-                                            "type": "XMLFragment",
+                                                "placement": "Before",
+                                                "anchor": "BookDetails"
+                                            }
+                                        },
+                                        "BookDetails": {
                                             "subSections": {
-												"CopyQtySubSection": {
-                                                    "template": "zlab.zlabbook.v2.custom.CopyQtySection",
+												"AdditionalDetails": {
+                                                    "template": "zlab.zlabbook.v2.custom.AdditionalDetailsSubsection",
                                                     "type": "XMLFragment",
-                                                    "title": "{i18n>copies}"
-                                                },
-                                                "PriceSubSection": {
-                                                    "template": "zlab.zlabbook.v2.custom.Price3Section",
-                                                    "type": "XMLFragment",
-                                                    "title": "{i18n>price}"
+                                                    "title": "{i18n>AdditionalDetails}"
                                                 }
 											}
                                         }

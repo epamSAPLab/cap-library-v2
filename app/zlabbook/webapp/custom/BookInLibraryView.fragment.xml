@@ -1,0 +1,47 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" >
+    <Table id="BookInLibraryViewTable" fixedLayout="false" 
+    items="{ 
+        path: '/Books', 
+        parameters : { 
+            $select : 'CurrencyCode_code,HasActiveEntity,IsActiveEntity,bookID,bookName,bookUUID,pageNumber,price,status_ID', 
+            $expand: 'status($select=ID,criticality,name),toAuthor($select=IsActiveEntity,authorUUID,firstName,lastName)'
+        }
+    }">
+        <headerToolbar>
+            <OverflowToolbar>
+                <content>
+                    <Title text="Books in Library" level="H2" />
+                    <ToolbarSpacer />
+                </content>
+            </OverflowToolbar>
+        </headerToolbar>
+        <columns>
+            <Column>
+                <Text text="{i18n>bookID}" />
+            </Column>
+            <Column>
+                <Text text="{i18n>bookName}" />
+            </Column>
+            <Column>
+                <Text text="{i18n>author}" />
+            </Column>
+            <Column>
+                <Text text="{i18n>pages}" />
+            </Column>
+            <Column>
+                <Text text="{i18n>price}" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem type="Active">
+                <cells>
+                    <ObjectIdentifier text="{bookID}" />
+                    <Text text="{bookName}" />
+                    <Text text="{toAuthor/firstName} {toAuthor/lastName}" />
+                    <Text text="{pageNumber}" />
+                    <Text text="{price} {CurrencyCode_code}" />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" core:require="{CurrencyValueHelpHandler: 'zlab/zlabbook/v2/custom/CurrencyValueHelpDialog'}">
+    <SelectDialog id="CurrencySelectDialog" title="Currencies" items="{/Currencies}" liveChange="CurrencyValueHelpHandler.onValueHelpSearch" confirm="CurrencyValueHelpHandler.onValueHelpClose" cancel="CurrencyValueHelpHandler.onValueHelpClose">
+        <StandardListItem title="{code}" description="{name} - {descr}" info="{symbol}" />
+    </SelectDialog>
+</core:FragmentDefinition>

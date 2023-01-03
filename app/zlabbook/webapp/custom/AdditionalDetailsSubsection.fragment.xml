@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="sap.m.sample.StandardMarginsEnforceWidthAuto.Page" xmlns="sap.m" xmlns:layout="sap.ui.layout">
+    <HBox width="100%" id="AdditionalDetailsHBox" justifyContent="SpaceBetween">
+        <VBox width="50%" direction="Column" id="CopyQtyVBox">
+            <Label text="{i18n>copies}" width="100%" id="CopyQtyLabel" labelFor="CopyQtySlider" required="{= ${IsActiveEntity} === false }" />
+            <Slider id="CopyQtySlider" value="{copyQty}" width="75%" min="1" max="200" showAdvancedTooltip="true" showHandleTooltip="false" inputsAsTooltips="true" class="sapUiMediumMarginBottom" visible="{= ${IsActiveEntity} === false }" />
+            <Text text="{copyQty}" visible="{= ${IsActiveEntity} === true }" />
+        </VBox>
+        <VBox width="50%" direction="Column" id="PriceVBox">
+            <Label text="{i18n>price}" width="100%" id="PriceLabel" labelFor="PriceStepInput" required="{= ${IsActiveEntity} === false }" />
+            <layout:HorizontalLayout id="PriceEditableModeLayout" visible="{= ${IsActiveEntity} === false }" core:require="{CurrencyHandler: 'zlab/zlabbook/v2/custom/AdditionalDetailsSubsection'}">
+                <StepInput id="PriceStepInput" value="{price}" width="120px" step="5" largerStep="3" class="sapUiMediumMarginEnd" />
+                <Input id="CurrencyCodeInput" width="120px" value="{CurrencyCode_code}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="CurrencyHandler.onValueHelpRequest" />
+            </layout:HorizontalLayout>
+            <Text text="{price} {CurrencyCode_code}" visible="{= ${IsActiveEntity} === true }" />
+        </VBox>
+    </HBox>
+</core:FragmentDefinition>
