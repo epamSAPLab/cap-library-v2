@@ -6,7 +6,6 @@ using {
     sap.common.CodeList,
     Currency
 } from './common';
-using {CE_SOURCINGSUPPLIERLIST_0001 as external} from '../srv/external/CE_SOURCINGSUPPLIERLIST_0001.csn';
 using {API_BUSINESS_PARTNER as external1} from '../srv/external/API_BUSINESS_PARTNER.csn';
 
 
@@ -61,11 +60,6 @@ entity Readers : managed {
         phonenumber   : String(15);
         image         : LargeBinary @Core.MediaType : 'image/png';
 }
-
-entity Suppliers1 as projection on external.SourcingSupplierList {
-    key SourcingSupplierListUUID as ID,
-        SupplierListName         as name,
-};
 
 entity Suppliers  as projection on external1.A_BusinessPartner {
     key BusinessPartner          as ID,

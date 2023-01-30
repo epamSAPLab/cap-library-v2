@@ -12,7 +12,7 @@ annotate service.Books with @(
             },
         ],
         LineItem            : [
-            //{ $Type  : 'UI.DataFieldForAction', Action : 'LibraryService.orderBook',   Label  : '{i18n>orderBook}'},
+            { $Type  : 'UI.DataFieldForAction', Action : 'LibraryService.orderBook',   Label  : '{i18n>orderBook}'},
             {
                 $Type             : 'UI.DataField',
                 Value             : bookID,
@@ -117,10 +117,14 @@ annotate service.Books with @(
                 $Type : 'UI.DataField',
                 Value : price
             },
-            {Value : supplier_ID},
-            {Value : supplier.isBlocked},
-        // ,
-        // {   $Type : 'UI.DataField', Value : requestedQty },
+            {
+                $Type : 'UI.DataField',
+                Value : supplier_ID
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : supplier.isBlocked
+            },
         ]},
         FieldGroup #AdministrativeData : {Data : [
             {

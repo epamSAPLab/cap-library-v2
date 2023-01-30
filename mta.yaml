@@ -11,6 +11,7 @@ modules:
   - name: uaa_zlablibrary-v2
   - name: dest_service
   - name: zlablibrary-v2-logs
+  - name: zlablibrary-v2-connectivity
   provides:
   - name: srv-api
     properties:
@@ -155,6 +156,11 @@ resources:
           existing_destinations_policy: update
       version: 1.0.0
     service: destination
+    service-plan: lite
+- name: zlablibrary-v2-connectivity
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: connectivity
     service-plan: lite
 - name: zlablibrary-v2_html_repo_host
   type: org.cloudfoundry.managed-service

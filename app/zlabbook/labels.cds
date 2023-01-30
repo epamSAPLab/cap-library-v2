@@ -20,10 +20,9 @@ annotate library.Books with @title : '{i18n>bookTitle}' {
 }
 
 annotate library.Suppliers with {
-    isBlocked @title : 'Supplier Blocked';
+    isBlocked @title : '{i18n>isBlocked}';
     ID        @(
-        title       : 'ID',
         Common.Text : fullName
     );
-    fullName  @title : 'Name';
+    fullName  @title : '{i18n>fullName}';
 };

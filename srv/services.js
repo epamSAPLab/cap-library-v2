@@ -6,15 +6,10 @@ module.exports = cds.service.impl(async function () {
 
     let { Books, Readers, Authors, Booking } = this.entities;
 
-    const external = await cds.connect.to('CE_SOURCINGSUPPLIERLIST_0001');
     const bupa = await cds.connect.to('API_BUSINESS_PARTNER');
 
     this.on('READ', 'Suppliers', async req => {
         return bupa.run(req.query);
-    });
-    
-    this.on('READ', 'Suppliers1', async req => {
-        return external.run(req.query);
     });
 
     this.on("READ", 'Books', async (req, next) => {
