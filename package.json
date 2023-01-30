@@ -49,18 +49,50 @@
     },
     "cds": {
         "requires": {
-            "db": {
-                "[development]": {
-                  "kind": "sqlite"
+            "[development]": {
+                "db": {
+                    "kind": "sql"
                 },
-                "[production]": {
-                  "kind": "hana"
+                "auth": {
+                    "kind": "basic-auth",
+                    "users": {
+                        "alice": {
+                            "password": "viewer",
+                            "roles": [
+                                "LibraryViewer"
+                            ]
+                        },
+                        "bob": {
+                            "password": "booking",
+                            "roles": [
+                                "BookingManager", "ReadersManager"
+                            ]
+                        },
+                        "vlad": {
+                            "password": "books",
+                            "roles": [
+                                "BooksManager", "AuthorsManager"
+                            ]
+                        },
+                        "vika": {
+                            "password": "admin",
+                            "roles": [
+                                "LibraryAdministrator"
+                            ]
+                        },
+                        "*": true
+                    }
+                }
+            },
+            "[production]": {
+                "db": {
+                    "kind": "hana"
                 }
             },
             "CPIDestination": {
                 "kind": "rest",
                 "credentials": {
-                  "destination": "CPI_DESTINATION"
+                    "destination": "CPI_DESTINATION"
                 }
             }
         },
