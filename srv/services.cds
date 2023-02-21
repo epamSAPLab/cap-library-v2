@@ -30,12 +30,7 @@ service LibraryService {
             to    : 'LibraryViewer'
         },
         {
-            grant : [
-                'READ',
-                'CREATE',
-                'UPDATE',
-                'DELETE'
-            ],
+            grant : ['*'],
             to    : [
                 'BooksManager',
                 'LibraryAdministrator'
