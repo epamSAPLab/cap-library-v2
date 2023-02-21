@@ -102,6 +102,15 @@
                 }
             }
         },
+        "extends": {
+			"extensions": {
+				"sap.ui.controllerExtensions": {
+					"sap.fe.templates.ListReport.ListReportController": {
+						"controllerName": "zlab.zlabbook.v2.custom.BookInLibraryView"
+					}
+				}
+			}
+		},
         "routing": {
             "routes": [
                 {
@@ -130,7 +139,22 @@
                                         "route": "BooksObjectPage"
                                     }
                                 }
-                            }
+                            },
+                            "initialLoad": "Enabled",
+                            "views": {
+								"paths": [
+									{
+										"key": "AllTab",
+										"annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#All"
+									},
+									{
+										"key": "BookInLibraryTab",
+										"label": "{i18n>CustomView}",
+										"template": "zlab.zlabbook.v2.custom.BookInLibraryView"
+									}
+								],
+								"showCounts": true
+							}
                         }
                     }
                 },
@@ -141,7 +165,67 @@
                     "options": {
                         "settings": {
                             "editableHeaderContent": false,
-                            "entitySet": "Books"
+                            "entitySet": "Books",
+                            "content": {
+                                "header": {
+                                    "facets": {
+                                        "HeaderCopiesFacet": {
+                                            "template": "zlab.zlabbook.v2.custom.HeaderCopiesSection",
+                                            "title": "{i18n>copies}",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "HeaderFacetImage"
+                                            },
+                                            "flexSettings": {
+                                                "designtime": "not-adaptable-visibility"
+                                            }
+                                        },
+                                        "HeaderPagesFacet": {
+                                            "template": "zlab.zlabbook.v2.custom.HeaderPagesSection",
+                                            "title": "{i18n>pages}",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "HeaderCopiesFacet"
+                                            },
+                                            "flexSettings": {
+                                                "designtime": "not-adaptable-visibility"
+                                            }
+                                        },
+                                        "HeaderStatusFacet": {
+                                            "template": "zlab.zlabbook.v2.custom.HeaderStatusSection",
+                                            "title": "{i18n>bookstatus}",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "HeaderPagesFacet"
+                                            },
+                                            "flexSettings": {
+                                                "designtime": "not-adaptable-visibility"
+                                            }
+                                        }
+                                    }
+                                },
+                                "body": {
+                                    "sections": {
+                                        "GeneralInfo": {
+                                            "template": "zlab.zlabbook.v2.custom.GeneralInfoSection",
+                                            "title": "{i18n>GeneralInfo}",
+                                            "position": {
+                                                "placement": "Before",
+                                                "anchor": "BookDetails"
+                                            }
+                                        },
+                                        "BookDetails": {
+                                            "subSections": {
+												"AdditionalDetails": {
+                                                    "template": "zlab.zlabbook.v2.custom.AdditionalDetailsSubsection",
+                                                    "type": "XMLFragment",
+                                                    "title": "{i18n>AdditionalDetails}"
+                                                }
+											}
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
